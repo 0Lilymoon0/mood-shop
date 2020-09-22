@@ -36,3 +36,29 @@ for (let i=0; i<data.length; ++i) {
     // put new div inside items container
     itemsContainer.appendChild(newDiv)
 }
+
+const cart = [ ]
+
+function addItem(name, price) {
+    const item = {name: name, price: price, qty: 1}
+    cart.push(item)
+}
+
+function showItems() {
+    console.log(`You have ${cart.length} items in your cart`)
+}
+
+addItem("happy", 5.99)
+addItem("sad", 5.99)
+addItem("angry", 5.99)
+addItem("calm", 5.99)
+addItem("curious", 5.99)
+addItem("disgust", 5.99)
+addItem("energetic", 5.99)
+addItem("gloomy", 5.99)
+addItem("scared", 5.99)
+addItem("shy", 5.99)
+addItem("sleepy", 5.99)
+addItem("surprised", 5.99)
+
+showItems()
