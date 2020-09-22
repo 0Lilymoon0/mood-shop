@@ -1,6 +1,6 @@
 body {
-    font-family: Helvetica;
-    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
     line-height: 1.5;
     margin: 0;
   }
@@ -9,7 +9,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  background-color: bisque;
+    background-color: lightgreen;
 }
 
 .page-header ul{
