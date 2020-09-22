@@ -83,6 +83,21 @@ function getTotal() {
     return total.toFixed(2);
 }
 
+// Remove Item
+function removeItem(name, qty = 0) {
+    for (let i = 0; i < cart.length; i += 1) {
+        if (cart[i].name === name) {
+            if (qty > 0) {
+                cart[i].qty -= qty
+            }
+            if (cart[i].qty < 1 || qty === 0) {
+                cart.splice(i, 1)
+            }
+            return
+        }
+    }
+}
+
 addItem("happy", 5.99)
 addItem("sad", 5.99)
 addItem("angry", 5.99)
@@ -95,5 +110,14 @@ addItem("scared", 5.99)
 addItem("shy", 5.99)
 addItem("sleepy", 5.99)
 addItem("surprised", 5.99)
+
+addItem("shy", 5.99)
+addItem("shy", 5.99)
+addItem("bold", 12.99)
+
+showItems()
+
+removeItem("shy", 2)
+removeItem("bold")
 
 showItems()
