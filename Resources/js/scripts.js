@@ -2,6 +2,12 @@ const itemsContainer = document.getElementById('items')
 
 import data from './data.js'
 
+const itemList = document.getElementById("item-list")
+const cartQty = document.getElementById("cart-qty")
+const cartTotal = document.getElementById("cart-total")
+console.log(itemList)
+itemList.innerHTML = "<li> Hello World</li>"
+
 // the length of our data determines how many times this loop goes around
 for (let i=0; i<data.length; ++i) {
     // create a new div element and give it a class name
@@ -55,14 +61,25 @@ function addItem(name, price) {
 
 // Show Items
 function showItems() {
-    
-    console.log(`You have ${getQty()} items in your cart`)
+    const qty = getQty()
+    // console.log(`You have ${qty} items in your cart`)
+    cartQty.innerHTML = `You have ${qty} items in your cart`;
 
+    let itemStr = " "
     for (let i = 0; i < cart.length; i += 1) {
-        console.log(`- ${cart[i].name}: $${cart[i].price} x ${cart[i].qty}`)
-    }
+        // console.log(`- ${cart[i].name}: $${cart[i].price} x ${cart[i].qty}`)
+            // const name = cart[i].name;
+            // const price = cart[i].price;
+            // const qty = cart[i].qty;
+        // { name: "Apple", price: 0.99, qty: 3 }
+        const { name, price, qty } = cart[i]
 
-    console.log(`Total in cart: $${getTotal()}`)
+        itemStr += `<li> ${name}: $${price} x ${qty} = ${qty * price} </li>`
+    }
+    itemList.innerHTML = itemStr
+
+    // console.log(`Total in cart: $${getTotal()}`)
+    cartTotal.innerHTML = `Total in cart: $${getTotal()}`;
 }
 
 // Get Qty
@@ -111,6 +128,7 @@ addItem("shy", 5.99)
 addItem("sleepy", 5.99)
 addItem("surprised", 5.99)
 
+addItem("shy", 5.99)
 addItem("shy", 5.99)
 addItem("shy", 5.99)
 addItem("bold", 12.99)
