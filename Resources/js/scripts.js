@@ -82,6 +82,13 @@ function showItems() {
     cartTotal.innerHTML = `Total in cart: $${getTotal()}`;
 }
 
+const all_items_button = Array.from(document.querySelectorAll("button"))
+
+all_items_button.forEach(elt => elt.addEventListener('click', () => {
+    addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
+    showItems()
+  }))
+
 // Get Qty
 function getQty() {
     let qty = 0;
@@ -139,3 +146,5 @@ removeItem("shy", 2)
 removeItem("bold")
 
 showItems()
+
+console.log(all_items_button)
